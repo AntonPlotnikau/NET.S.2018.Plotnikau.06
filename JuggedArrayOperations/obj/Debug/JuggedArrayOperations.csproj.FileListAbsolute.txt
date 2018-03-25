@@ -1,0 +1,6 @@
+E:\training\NET.S.2018.Plotnikau.06\JuggedArrayOperations\bin\Debug\JuggedArrayOperations.dll
+E:\training\NET.S.2018.Plotnikau.06\JuggedArrayOperations\bin\Debug\JuggedArrayOperations.pdb
+E:\training\NET.S.2018.Plotnikau.06\JuggedArrayOperations\obj\Debug\JuggedArrayOperations.csprojResolveAssemblyReference.cache
+E:\training\NET.S.2018.Plotnikau.06\JuggedArrayOperations\obj\Debug\JuggedArrayOperations.csproj.CoreCompileInputs.cache
+E:\training\NET.S.2018.Plotnikau.06\JuggedArrayOperations\obj\Debug\JuggedArrayOperations.dll
+E:\training\NET.S.2018.Plotnikau.06\JuggedArrayOperations\obj\Debug\JuggedArrayOperations.pdb
