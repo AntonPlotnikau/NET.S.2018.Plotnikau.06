@@ -7,20 +7,16 @@ namespace MathExtensions.Tests
     [TestFixture]
     public class PolynomialTests
     {
-        public const int DefaultCapacity = 32;
-
         [Test]
         [TestCase(2.65, 3.41, 645, 345.432, 332)]
         [TestCase(1.54, 0, 0, 12.4)]
         [TestCase(3.19, 435425.43543)]
         public void PolynomialConstructorsTests(params double[] actual)
         {
-            double[] expected = new double[DefaultCapacity];
-            Polynomial polynomial = new Polynomial(actual);
+            Polynomial polynomial1 = new Polynomial(actual);
+            Polynomial polynomial2 = new Polynomial(actual);
 
-            Array.Copy(polynomial.Coefficients, expected, polynomial.Coefficients.Length);
-
-            CollectionAssert.AreEqual(expected, polynomial.Coefficients);
+            Assert.True(polynomial1.Equals(polynomial2));
         }
 
         [Test]

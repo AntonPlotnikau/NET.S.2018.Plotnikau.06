@@ -1,6 +1,7 @@
-E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.csprojResolveAssemblyReference.cache
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.csproj.CoreCompileInputs.cache
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\bin\Debug\MathExpressions.dll
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\bin\Debug\MathExpressions.pdb
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.dll
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.pdb
+E:\training\NET.S.2018.Plotnikau.06\MathExpressions\bin\Debug\MathExpressions.dll.config
+E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.csprojResolveAssemblyReference.cache

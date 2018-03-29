@@ -14,3 +14,4 @@ E:\training\NET.S.2018.Plotnikau.06\MathExtensions.Tests\obj\Debug\MathExtension
 E:\training\NET.S.2018.Plotnikau.06\MathExtensions.Tests\obj\Debug\MathExtensions.Tests.csproj.CoreCompileInputs.cache
 E:\training\NET.S.2018.Plotnikau.06\MathExtensions.Tests\obj\Debug\MathExtensions.Tests.dll
 E:\training\NET.S.2018.Plotnikau.06\MathExtensions.Tests\obj\Debug\MathExtensions.Tests.pdb
+E:\training\NET.S.2018.Plotnikau.06\MathExtensions.Tests\bin\Debug\MathExpressions.dll.config
