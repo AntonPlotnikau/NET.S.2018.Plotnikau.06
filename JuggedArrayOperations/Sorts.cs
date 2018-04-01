@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace JuggedArrayOperations
 {
@@ -9,281 +8,42 @@ namespace JuggedArrayOperations
     public static class Sorts
     {
         /// <summary>
-        /// Sorts source jugged array by ascending order of elements sum.
+        /// Bubble sort.
         /// </summary>
-        /// <param name="array">source jugged array.</param>
-        /// <exception cref="System.ArgumentNullException">array is null</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// array length less than 1
+        /// <param name="array">The array.</param>
+        /// <param name="comparer">The comparer for that array.</param>
+        /// <exception cref="ArgumentNullException">
+        /// array is null
         /// or
-        /// array contain elements with length less than 1
+        /// comparer is null
         /// </exception>
-        public static void SortByAscendingOrderOfElementsSum(int[][] array)
+        public static void BubbleSort(int[][] array, IComparer comparer)
         {
             if (array == null)
             {
                 throw new ArgumentNullException(nameof(array));
             }
 
-            if (array.Length < 1)
+            if (comparer == null) 
             {
-                throw new ArgumentOutOfRangeException(nameof(array));
+                throw new ArgumentNullException(nameof(comparer));
             }
 
-            for (int i = 0; i < array.Length; i++) 
+            bool flag = true;
+            int i = array.Length - 1;
+            while (flag) 
             {
-                for (int j = 0; j < array.Length - i - 1; j++) 
-                {
-                    if (array[j] == null)
+                flag = false;
+                for (int j = 0; j < i; j++) 
+                 {
+                    if (comparer.Compare(array[j], array[j + 1]) > 0)
                     {
                         Swap(ref array[j], ref array[j + 1]);
-                    }
-                    else if (array[j].Length < 1)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(array));
-                    }
-                    else if (array[j + 1] != null) 
-                    {
-                        if (array[j].Sum() > array[j + 1].Sum())
-                        {
-                            Swap(ref array[j], ref array[j + 1]);
-                        }
+                        flag = true;
                     }
                 }
-            }
-        }
 
-        /// <summary>
-        /// Sorts source jugged array by descending order of elements sum.
-        /// </summary>
-        /// <param name="array">source jugged array.</param>
-        /// <exception cref="System.ArgumentNullException">array is null</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// array length less than 1
-        /// or
-        /// array contain elements with length less than 1
-        /// </exception>
-        public static void SortByDescendingOrderOfElementsSum(int[][] array)
-        {
-            if (array == null)
-            {
-                throw new ArgumentNullException(nameof(array));
-            }
-
-            if (array.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(array));
-            }
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length - i - 1; j++)
-                {
-                    if (array[j] == null)
-                    {
-                        if (j - 1 >= 0)
-                        {
-                            Swap(ref array[j], ref array[j - 1]);
-                        }
-                    }
-                    else if (array[j].Length < 1)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(array));
-                    }
-                    else if (array[j + 1] != null)
-                    {
-                        if (array[j].Sum() < array[j + 1].Sum())
-                        {
-                            Swap(ref array[j], ref array[j + 1]);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sorts source jugged array by ascending order of maximum elements.
-        /// </summary>
-        /// <param name="array">source jugged array.</param>
-        /// <exception cref="System.ArgumentNullException">array is null</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// array length less than 1
-        /// or
-        /// array contain elements with length less than 1
-        /// </exception>
-        public static void SortByAscendingOrderOfMaxElements(int[][] array)
-        {
-            if (array == null)
-            {
-                throw new ArgumentNullException(nameof(array));
-            }
-
-            if (array.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(array));
-            }
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length - i - 1; j++)
-                {
-                    if (array[j] == null)
-                    {
-                        Swap(ref array[j], ref array[j + 1]);
-                    }
-                    else if (array[j].Length < 1)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(array));
-                    }
-                    else if (array[j + 1] != null) 
-                    {
-                        if (array[j].Max() > array[j + 1].Max())
-                        {
-                            Swap(ref array[j], ref array[j + 1]);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sorts source jugged array by descending order of maximum elements.
-        /// </summary>
-        /// <param name="array">source jugged array.</param>
-        /// <exception cref="System.ArgumentNullException">array is null</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// array length less than 1
-        /// or
-        /// array contain elements with length less than 1
-        /// </exception>
-        public static void SortByDescendingOrderOfMaxElements(int[][] array)
-        {
-            if (array == null)
-            {
-                throw new ArgumentNullException(nameof(array));
-            }
-
-            if (array.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(array));
-            }
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length - i - 1; j++)
-                {
-                    if (array[j] == null)
-                    {
-                        if (j - 1 >= 0)
-                        {
-                            Swap(ref array[j], ref array[j - 1]);
-                        }
-                    }
-                    else if (array[j].Length < 1)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(array));
-                    }
-                    else if (array[j + 1] != null)
-                    {
-                        if (array[j].Max() < array[j + 1].Max())
-                        {
-                            Swap(ref array[j], ref array[j + 1]);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sorts source jugged array by ascending order of minimum elements.
-        /// </summary>
-        /// <param name="array">source jugged array.</param>
-        /// <exception cref="System.ArgumentNullException">array is null</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// array length less than 1
-        /// or
-        /// array contain elements with length less than 1
-        /// </exception>
-        public static void SortByAscendingOrderOfMinElements(int[][] array)
-        {
-            if (array == null)
-            {
-                throw new ArgumentNullException(nameof(array));
-            }
-
-            if (array.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(array));
-            }
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length - i - 1; j++)
-                {
-                    if (array[j] == null)
-                    {
-                        Swap(ref array[j], ref array[j + 1]);
-                    }
-                    else if (array[j].Length < 1)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(array));
-                    }
-                    else if (array[j + 1] != null)
-                    {
-                        if (array[j].Min() > array[j + 1].Min())
-                        {
-                            Swap(ref array[j], ref array[j + 1]);
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Sorts source jugged array by descending order of minimum elements.
-        /// </summary>
-        /// <param name="array">source jugged array.</param>
-        /// <exception cref="System.ArgumentNullException">array is null</exception>
-        /// <exception cref="System.ArgumentOutOfRangeException">
-        /// array length less than 1
-        /// or
-        /// array contain elements with length less than 1
-        /// </exception>
-        public static void SortByDescendingOrderOfMinElements(int[][] array)
-        {
-            if (array == null)
-            {
-                throw new ArgumentNullException(nameof(array));
-            }
-
-            if (array.Length < 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(array));
-            }
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length - i - 1; j++)
-                {
-                    if (array[j] == null)
-                    {
-                        if (j - 1 >= 0)
-                        {
-                            Swap(ref array[j], ref array[j - 1]);
-                        }
-                    }
-                    else if (array[j].Length < 1)
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(array));
-                    }
-                    else if (array[j + 1] != null)
-                    {
-                        if (array[j].Min() < array[j + 1].Min())
-                        {
-                            Swap(ref array[j], ref array[j + 1]);
-                        }
-                    }
-                }
+                i--;
             }
         }
 

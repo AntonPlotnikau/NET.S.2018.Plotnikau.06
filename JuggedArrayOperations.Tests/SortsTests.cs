@@ -25,7 +25,7 @@ namespace JuggedArrayOperations.Tests
             expected[3] = source4;
             expected[4] = source2;
 
-            Sorts.SortByAscendingOrderOfElementsSum(actual);
+            Sorts.BubbleSort(actual, new TestComparers.SumArrayRowIncComparer());
 
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -48,7 +48,7 @@ namespace JuggedArrayOperations.Tests
             expected[3] = source3;
             expected[4] = source5;
 
-            Sorts.SortByDescendingOrderOfElementsSum(actual);
+            Sorts.BubbleSort(actual, new TestComparers.SumArrayRowDecComparer());
 
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -71,7 +71,7 @@ namespace JuggedArrayOperations.Tests
             expected[3] = source5;
             expected[4] = source2;
 
-            Sorts.SortByAscendingOrderOfMaxElements(actual);
+            Sorts.BubbleSort(actual, new TestComparers.MaxArrayRowIncComparer());
 
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -94,13 +94,13 @@ namespace JuggedArrayOperations.Tests
             expected[3] = source1;
             expected[4] = source3;
 
-            Sorts.SortByDescendingOrderOfMaxElements(actual);
+            Sorts.BubbleSort(actual, new TestComparers.MaxArrayRowDecComparer());
 
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
-        [TestCase(new int[] { 23, 67, 67, 342, 234 }, null, new int[] { 0, -3, 12 }, new int[] { int.MaxValue, -24 }, new int[] { int.MaxValue, int.MinValue })]
+        [TestCase(new int[] { 23, 67, 67, 342, 234 }, null, new int[] { 0, -3, 12 }, new int[] { int.MaxValue, -24 }, new int[] { int.MaxValue, -200000 })]
         public void SortByAscendingOrderOfMinElementsTests(int[] source1, int[] source2, int[] source3, int[] source4, int[] source5)
         {
             int[][] actual = new int[5][];
@@ -117,7 +117,7 @@ namespace JuggedArrayOperations.Tests
             expected[3] = source1;
             expected[4] = source2;
 
-            Sorts.SortByAscendingOrderOfMinElements(actual);
+            Sorts.BubbleSort(actual, new TestComparers.MinArrayRowIncComparer());
 
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -140,17 +140,17 @@ namespace JuggedArrayOperations.Tests
             expected[3] = source4;
             expected[4] = source5;
 
-            Sorts.SortByDescendingOrderOfMinElements(actual);
+            Sorts.BubbleSort(actual, new TestComparers.MinArrayRowDecComparer());
 
             CollectionAssert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void SortsArgumentNullExceptionTests()
-            => Assert.Throws<ArgumentNullException>(() => Sorts.SortByAscendingOrderOfElementsSum(null));
+        public void SortsArrayNullExceptionTests()
+            => Assert.Throws<ArgumentNullException>(() => Sorts.BubbleSort(null, new TestComparers.MinArrayRowIncComparer()));
 
         [Test]
-        public void SortsArgumentOutOfRangeExceptionTests()
-            => Assert.Throws<ArgumentOutOfRangeException>(() => Sorts.SortByAscendingOrderOfElementsSum(new int[0][]));
+        public void SortsComparerNullExceptionTests()
+                   => Assert.Throws<ArgumentNullException>(() => Sorts.BubbleSort(new int[5][], null));
     }
 }
