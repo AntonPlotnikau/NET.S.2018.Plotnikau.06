@@ -5,3 +5,9 @@ E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.dl
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.pdb
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\bin\Debug\MathExpressions.dll.config
 E:\training\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.csprojResolveAssemblyReference.cache
+E:\Task2\NET.S.2018.Plotnikau.06\MathExpressions\bin\Debug\MathExpressions.dll
+E:\Task2\NET.S.2018.Plotnikau.06\MathExpressions\bin\Debug\MathExpressions.pdb
+E:\Task2\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.csprojResolveAssemblyReference.cache
+E:\Task2\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.csproj.CoreCompileInputs.cache
+E:\Task2\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.dll
+E:\Task2\NET.S.2018.Plotnikau.06\MathExpressions\obj\Debug\MathExpressions.pdb

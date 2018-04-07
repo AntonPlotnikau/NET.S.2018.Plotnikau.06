@@ -8,6 +8,14 @@ namespace JuggedArrayOperations
     public static class Sorts
     {
         /// <summary>
+        /// Delegate for comparing two arrays
+        /// </summary>
+        /// <param name="array1">The array1.</param>
+        /// <param name="array2">The array2.</param>
+        /// <returns>result of comparing</returns>
+        public delegate int Predicate(int[] array1, int[] array2);
+
+        /// <summary>
         /// Bubble sort.
         /// </summary>
         /// <param name="array">The array.</param>
@@ -45,6 +53,50 @@ namespace JuggedArrayOperations
 
                 i--;
             }
+
+            // BubbleSort(array, comparer.Compare);
+        }
+
+        /// <summary>
+        /// Bubble sort.
+        /// </summary>
+        /// <param name="array">The array.</param>
+        /// <param name="predicate">The predicate for that array.</param>
+        /// <exception cref="ArgumentNullException">
+        /// array is null
+        /// or
+        /// predicate is null
+        /// </exception>
+        public static void BubbleSort(int[][] array, Predicate predicate)
+        {
+            if (array == null)
+            {
+                throw new ArgumentNullException(nameof(array));
+            }
+
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
+            /*bool flag = true;
+            int i = array.Length - 1;
+            while (flag) 
+            {
+                flag = false;
+                for (int j = 0; j < i; j++) 
+                {
+                    if (predicate(array[j], array[j + 1]) > 0)
+                    {
+                        Swap(ref array[j], ref array[j + 1]);
+                        flag = true;
+                    }
+                }
+
+                i--;
+            }*/
+
+            BubbleSort(array, new Comparer(predicate));
         }
 
         /// <summary>
