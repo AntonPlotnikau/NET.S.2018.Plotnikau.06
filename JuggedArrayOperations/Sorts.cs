@@ -8,14 +8,6 @@ namespace JuggedArrayOperations
     public static class Sorts
     {
         /// <summary>
-        /// Delegate for comparing two arrays
-        /// </summary>
-        /// <param name="array1">The array1.</param>
-        /// <param name="array2">The array2.</param>
-        /// <returns>result of comparing</returns>
-        public delegate int Predicate(int[] array1, int[] array2);
-
-        /// <summary>
         /// Bubble sort.
         /// </summary>
         /// <param name="array">The array.</param>
@@ -67,7 +59,7 @@ namespace JuggedArrayOperations
         /// or
         /// predicate is null
         /// </exception>
-        public static void BubbleSort(int[][] array, Predicate predicate)
+        public static void BubbleSort(int[][] array, Func<int[], int[], int> predicate)
         {
             if (array == null)
             {

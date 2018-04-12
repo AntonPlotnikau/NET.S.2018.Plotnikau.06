@@ -1,4 +1,6 @@
-﻿namespace JuggedArrayOperations
+﻿using System;
+
+namespace JuggedArrayOperations
 {
     /// <summary>
     /// Comparer that uses delegate
@@ -9,13 +11,13 @@
         /// <summary>
         /// The predicate
         /// </summary>
-        private Sorts.Predicate predicate;
+        private Func<int[], int[], int> predicate;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Comparer"/> class.
         /// </summary>
         /// <param name="predicate">The predicate.</param>
-        public Comparer(Sorts.Predicate predicate)
+        public Comparer(Func<int[], int[], int> predicate)
         {
             this.predicate = predicate;
         }
